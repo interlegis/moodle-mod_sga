@@ -19,24 +19,59 @@
 require_once($CFG->libdir . "/externallib.php");
 
 class mod_sga_external extends external_api {
-
-   /* public static function get_usage_statistics() {
+    
+   public static function get_notas_curso() {
         global $USER;
 
-        return '{"cursos": "10", "alunos":"20", "certificados":"12"}';
+        // TODO: obter as notas do aluno no curso
+        // e retornar como JSON
+        // ver exemplo https://github.com/interlegis/moodle-local_wsilb/blob/main/externallib.php
+
+
+        $nota1 = array(
+            "aluno" => '05272886674',
+            "nota" => "9", 
+        );
+
+        $nota2 = array(
+            "aluno" => '13504211628',
+            "nota" => '8'
+        );
+
+        $notas= array($nota1, $nota2);
+
+        $obj = new StdClass();
+        $obj->curso = 123;
+        $obj->notas = $notas;
+
+        $json = json_encode($obj);
+
+        return $json;
+        '
+        {
+            "curso":123,
+            "notas":[
+               {
+                  "aluno":"05272886674",
+                  "nota":9
+               },
+               {
+                  "aluno":"13504211628",
+                  "nota":8
+               }
+            ]
+         }'; 
     }
 
-    public static function get_usage_statistics_parameters() {
+    public static function get_notas_curso_parameters() {
         return new external_function_parameters(
-                array()
+                array(PARAM_INT, 'Código do curso')
         );
     }
 
-    public static function get_usage_statistics_returns() {
-        return new external_value(PARAM_TEXT, 'JSON with statistics of this installation');
+    public static function get_notas_curso_returns() {
+        return new external_value(PARAM_TEXT, 'JSON com notas dos alunos no curso especificado');
     }
-
-    */
 
 }
 

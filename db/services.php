@@ -16,12 +16,12 @@
 /**
  * External functions and service definitions.
  */
-/*
+
 // We define the services to install as pre-build services. A pre-build service is not editable by administrator.
 $services = array(
-        'Escola Modelo Service' => array(
+        'SGA Service' => array(
                 'functions' => array (
-                        'block_escola_modelo_get_usage_statistics'
+                        'mod_sga_get_notas_curso'
                 ),
                 'restrictedusers' => 0,
                 'enabled'=>1,
@@ -30,13 +30,12 @@ $services = array(
 
 // We defined the web service functions to install.
 $functions = array(
-        'block_escola_modelo_get_usage_statistics' => array(
-                'classname'   => 'block_escola_modelo_external',
-                'methodname'  => 'get_usage_statistics',
-                'classpath'   => 'block/escola_modelo/externallib.php',
-                'description' => 'Returns user statistics from this moodle installation',
+        'mod_sga_get_notas_curso' => array(
+                'classname'   => 'mod_sga_external',
+                'methodname'  => 'get_notas_curso',
+                'classpath'   => 'mod/sga/externallib.php',
+                'description' => 'Retorna notas para alunos matriculados em determinado curso',
                 'type'        => 'read',
         ),
 );
- */
 
